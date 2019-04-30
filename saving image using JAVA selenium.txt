@@ -1,0 +1,27 @@
+@Test
+   public void SalvarImagemFileOnSite() {
+   WebDriver driver = null;
+		
+  try {
+     driver = new FirefoxDriver();
+     driver.get("http://agiletesters.com.br");
+     
+     WebElement logo = driver.findElement(By.cssSelector(".forum-logo"));
+     String logoSRC = logo.getAttribute("src");
+     
+     URL imageURL = new URL(logoSRC);
+     BufferedImage saveImage = ImageIO.read(imageURL);
+     
+     ImageIO.write(saveImage, "png", new File("logo-forum.png"));
+     
+     } catch (Exception e) {
+        e.printStackTrace();
+     } finally {
+        driver.close();
+     }
+  }
+
+
+https://maps.googleapis.com/maps/api/staticmap?center=23.8144636,90.3718384&zoom=14&size=400x400&key=Your API Key
+https://maps.googleapis.com/maps/api/staticmap?center=23.8144636,90.3718384&zoom=14&style=feature:road%7Cvisibility:on%7Cadministrative:off&size=400x400&key=Your API Key
+https://maps.googleapis.com/maps/api/staticmap?size=512x512&zoom=15&center=23.8144636,90.3718384&style=feature:road.local%7Celement:geometry%7Ccolor:0x00ff00&style=feature:landscape%7Celement:geometry.fill%7Ccolor:0x000000&style=element:labels%7Cinvert_lightness:true&style=feature:road.arterial%7Celement:labels%7Cinvert_lightness:false&key=Your API Key
